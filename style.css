@@ -1,10 +1,25 @@
 body {
-    background-color: #ddd;
-    padding: 2%;
+    margin: 0;
+    padding: 0;
 }
 
-.main {
+.container {
     background-color: red;
+    height: 100vh;
+
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -16,5 +31,24 @@ body {
     display: flex;
 
     background-color: #bbb;
+
+    flex: 1;
+
 }
 
+.block {
+    border: 1px solid goldenrod;
+    flex: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+.mainLink{
+    text-decoration: none;
+}
