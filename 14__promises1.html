@@ -15,7 +15,80 @@
   </form>
 <script>
     const endpoint = "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json"
-    const cities = [];
+
+    cities = [];
+
+    fetch(endpoint)
+                .then(blob => blob.json())
+                .then(data => cities.push(...data));
+
+    function matchData(searchTerm, cities) {
+        return cities.filter(word => {
+            const matchedWord = new RegExp(searchTerm, 'gi');
+            return word.city.match(matchedWord) || word.state.match(matchedWord)
+        });
+    }
+
+
+    function displayMatch(){
+        const matchArray =  matchData(this.value, cities)
+        const html = matchArray.map(place => {
+            return `
+                <li>
+                    <span class = "name">${place.city}, ${place.state} </span>
+                    <span class = "population">${place.population} </span>
+                </li>
+            `
+        }).join('');
+        suggestions.innerHTML = html;
+    }
+
+    const typedIn = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    typedIn.addEventListener('change', displayMatch);
+    typedIn.addEventListener('keyup', displayMatch);
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- const cities = [];
 
     fetch(endpoint)
         .then(blob => blob.json())
@@ -33,17 +106,13 @@
 
     function displayMatches() {
         const matchedValue = findMatches(this.value, cities);
-        console.log(matchedValue);
+        const html = matchedValue.map(place => {
+            return
+        })
     }
 
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
 
     searchInput.addEventListener('change', displayMatches);
-    searchInput.addEventListener('keyup', displayMatches);
-
-
-</script>
-</body>
-</html>
-
+    searchInput.addEventListener('keyup', displayMatches); -->
