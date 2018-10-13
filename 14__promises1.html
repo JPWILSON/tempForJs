@@ -31,7 +31,16 @@
     }
 
     function lookForResults() {
-        const matchedData = matchWord(this.value, cities));
+        const matchedArray = matchWord(this.value, cities);
+        const html =  matchedArray.map(place => {
+            return `
+                <li>
+                    <span class = "name">${place.city}, ${place.state}</span>
+                    <span class = "population">${place.population}</span>
+                </li>
+            `
+        }).join('');
+        suggestor.innerHTML = html;
     }
 
     const searcher = document.querySelector('.search');
