@@ -18,36 +18,29 @@
 
     cities = [];
 
-    fetch(endpoint)
-                .then(blob => blob.json())
-                .then(data => cities.push(...data));
+    const data = fetch(endpoint)
+        .then(blob => blob.json())
+        .then(data => cities.push(...data));
 
-    function matchData(searchTerm, cities) {
+
+    function matchWord(wordToMatch, cities) {
         return cities.filter(word => {
-            const matchedWord = new RegExp(searchTerm, 'gi');
-            return word.city.match(matchedWord) || word.state.match(matchedWord)
+        const newRegex = new RegExp(wordToMatch, 'gi');
+        return  word.city.match(newRegex) || word.state.match(newRegex)
         });
     }
 
-
-    function displayMatch(){
-        const matchArray =  matchData(this.value, cities)
-        const html = matchArray.map(place => {
-            return `
-                <li>
-                    <span class = "name">${place.city}, ${place.state} </span>
-                    <span class = "population">${place.population} </span>
-                </li>
-            `
-        }).join('');
-        suggestions.innerHTML = html;
+    function lookForResults() {
+        const matchedData = matchWord(this.value, cities));
     }
 
-    const typedIn = document.querySelector('.search');
-    const suggestions = document.querySelector('.suggestions');
+    const searcher = document.querySelector('.search');
+    const suggestor = document.querySelector('.suggestions');
 
-    typedIn.addEventListener('change', displayMatch);
-    typedIn.addEventListener('keyup', displayMatch);
+
+    searcher.addEventListener('keyup', lookForResults);
+    searcher.addEventListener('change', lookForResults);
+
 
 
 
