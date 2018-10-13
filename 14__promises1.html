@@ -6,68 +6,58 @@
     <title>Promises</title>
 </head>
 <body>
-    <form class="search-form">
-        <input type="text" class="search" placeholder="City or State">
-        <ul class="suggestions">
-          <li>Filter for a city</li>
-          <li>or a state</li>
-        </ul>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
   </form>
 <script>
-    const endpoint = "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json"
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-    cities = [];
+    const cities = [];
 
-    const data = fetch(endpoint)
+    fetch(endpoint)
         .then(blob => blob.json())
         .then(data => cities.push(...data));
 
+    function numFormatting(n) {
+        return String(n).replace(/(.)(?=(\d{3})+$)/g,'$1,');
+    }
 
     function matchWord(wordToMatch, cities) {
         return cities.filter(word => {
-        const newRegex = new RegExp(wordToMatch, 'gi');
-        return  word.city.match(newRegex) || word.state.match(newRegex)
-        });
+            const regex = new RegExp(wordToMatch, 'gi');
+            return word.city.match(regex) || word.state.match(regex);
+        })
     }
 
-    function commaSeparateNumber(val){
-    while (/(\d+)(\d{3})/.test(val.toString())){
-      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
-    }
-    return val;
-  }
-
-    function lookForResults() {
-        const matchedArray = matchWord(this.value, cities);
-        const html =  matchedArray.map(place => {
-            const regex = new RegExp(this.value, 'gi')
-            const cityName = place.city.replace(regex, `<span class = "hl">${this.value}</span>`)
-            const stateName = place.state.replace(regex, `<span class = "hl">${this.value}</span>`)
-            const formattedPopulation = commaSeparateNumber(place.population);
+    function displayMatch() {
+        const matchedObjects = matchWord(this.value, cities);
+        const html = matchedObjects.map(place => {
+            const regexer = new RegExp(this.value, 'gi');
+            const placeCity = place.city.replace(regexer, `<span class="hl">${this.value}</span>`);
+            const placeState = place.state.replace(regexer, `<span class="hl">${this.value}</span>`)
+            const formatNum = numFormatting(place.population)
             return `
                 <li>
-                    <span class = "name">${cityName}, ${stateName}</span>
-                    <span class = "population">${formattedPopulation}</span>
+                    <span class="name">${placeCity}, ${placeState}</span>
+                    <span class="population">${formatNum}</span>
                 </li>
             `
         }).join('');
-        suggestor.innerHTML = html;
+        suggestions.innerHTML = html;
     }
 
-    const searcher = document.querySelector('.search');
-    const suggestor = document.querySelector('.suggestions');
+    const search = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
 
-
-    searcher.addEventListener('keyup', lookForResults);
-    searcher.addEventListener('change', lookForResults);
-
-
-
-
-
-
+    search.addEventListener('keyup', displayMatch);
+    search.addEventListener('change', displayMatch);
 </script>
-</body>
+  </body>
 </html>
 
 
