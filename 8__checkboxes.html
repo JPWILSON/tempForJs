@@ -2,60 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JP Canvas</title>
+    <title>Checkboxes</title>
+    <link rel="stylesheet" href="css/8__checkboxes.css">
 </head>
 <body>
-<canvas id="draw" width="800" height="800"></canvas>
-<script>
-    const canvas = document.querySelector('#draw');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const ctx = canvas.getContext('2d');
-
-
-    ctx.strokeStyle = "#def438";
-    ctx.lineCap = "round";
-    ctx.lineJoin = "butt";
-    ctx.lineWidth = 10;
-
-/*    ctx.moveTo()
-    ctx.stroke();*/
-
-    let isDraw = false;
-
-    let lastX = 0;
-    let lastY = 0;
-
-
-    function draw(e) {
-        if(!isDraw) return;
-        console.log(e);
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
-
-    canvas.addEventListener('mousedown', (e) => {
-        isDraw = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    });
-
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', () => isDraw = false);
-    canvas.addEventListener('mouseout', () => isDraw = false);
-
-
-</script>
-
-<style>
-  html, body {
-    margin: 0;
-  }
-</style>
-
+    <div class="main">
+        <div class="inbox">
+            <div class="item">
+                <input type="checkbox">
+                <p>item 1</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 2</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 3</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 4</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 5</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 6</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 7</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 8</p>
+            </div>
+            <div class="item">
+                <input type="checkbox">
+                <p>item 9</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

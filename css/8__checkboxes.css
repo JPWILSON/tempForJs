@@ -1,0 +1,58 @@
+body {
+    background-color: #ddd;
+}
+
+.main {
+    background-color: #ff3333;
+    width: 96%;
+    padding: 1%;
+    margin: 1%;
+    height: 95vh;
+
+}
+
+.inbox {
+    max-width: 400px;
+    background: #eed;
+    margin: 50px auto;
+    border-radius: 5px;
+    box-shadow: 5px 10px 15px 1.5px ;
+}
+
+.item {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    -ms-align-items: center;
+    align-items: center;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+
+.item:last-child {
+    border-bottom: 0;
+}
+
+input:checked + p{
+    text-decoration: line-through;
+}
+
+input[type='checkbox'] {
+    margin: 20px;
+    background: #bbcdcd;
+}
+
+p {
+    margin: 0;
+    padding: 20px;
+    transition: background 0.3s;
+    flex:1;
+
+    font-family:'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+    border-left: 1px solid #D1E2FF;
+}
