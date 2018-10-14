@@ -36,7 +36,7 @@ body {
     border-bottom: 0;
 }
 
-input:checked + p{
+input:checked + label{
     text-decoration: line-through;
 }
 
@@ -45,7 +45,7 @@ input[type='checkbox'] {
     background: #bbcdcd;
 }
 
-p {
+label {
     margin: 0;
     padding: 20px;
     transition: background 0.3s;
