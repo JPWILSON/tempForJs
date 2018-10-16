@@ -82,7 +82,7 @@ body {
     position: absolute;
     margin: 0;
     padding: 6px;
-    background-color: #0039ff;
+    background-color:  #ffc600;
     border-radius: 3px;
     box-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.4);
 
@@ -90,9 +90,17 @@ body {
 
 .homelink a{
     text-decoration: none;
-    color: #fff;
+    color:#0039ff;
+    font-weight: bold;
 }
 
-.homelink: hover {
-    background-color: #ffc600;
+.homelink:hover {
+    background-color: #0039ff;
+    padding: 10px;
+    font-weight: bold;
 }
+.homelink:hover a{
+color: white;
+    text-decoration: none;
+}
+
