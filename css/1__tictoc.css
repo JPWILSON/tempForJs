@@ -15,10 +15,23 @@ body {
 }
 
 .face {
-    position: absolute;
-    border: 3px solid #000;
-    width: 18em;
-    height: 18em;
+    position: relative;
+    border: 5px solid #000;
+    width: 24em;
+    height: 24em;
     left: 60%;
     top: 15%;
+    border-radius: 50%;
+    transform: translateY(-3px);
+}
+
+.hand {
+    position: absolute;
+    width: 50%;
+    border: 3px solid green;
+    top: 50%;
+    transform: rotate(90deg);
+    transform-origin: 100%;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.3, 2.2, 0.3, 1);
 }

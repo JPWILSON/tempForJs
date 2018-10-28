@@ -8,10 +8,26 @@
 <body>
     <div class="clock">
         <div class="face">
-            <div class="hour"></div>
-            <div class="min"></div>
-            <div class="sec"></div>
+            <div class="hand hour"></div>
+            <div class="hand min"></div>
+            <div class="hand sec"></div>
         </div>
     </div>
+
+    <script>
+        const hourHand = document.querySelector('.hour');
+        const minHand = document.querySelector('.min');
+        const secHand = document.querySelector('.sec');
+
+        function changeTime() {
+            const timeNow = new Date();
+            let secs = timeNow.getSeconds();
+            let secsRotation = (secs/60 * 360) + 90;
+            secHand.style.transform = `rotate(${secsRotation}deg)`;
+
+        }
+
+        setInterval(changeTime, 1000);
+    </script>
 </body>
 </html>
