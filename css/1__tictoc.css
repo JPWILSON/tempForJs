@@ -5,5 +5,20 @@
 
 
 body {
-    background: red;
+    background: url(../images/bigben.jpg) no-repeat;
+    background-size: cover;
+}
+
+.clock {
+    height: 100vh;
+    width: 100%;
+}
+
+.face {
+    position: absolute;
+    border: 3px solid #000;
+    width: 18em;
+    height: 18em;
+    left: 60%;
+    top: 15%;
 }
