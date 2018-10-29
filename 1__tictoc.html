@@ -23,8 +23,31 @@
             const timeNow = new Date();
             let secs = timeNow.getSeconds();
             let secsRotation = (secs/60 * 360) + 90;
+            if(secsRotation === 360) {
+                secHand.style.removeProperty('transition');
+                }
+            else {
             secHand.style.transform = `rotate(${secsRotation}deg)`;
+            }
 
+
+            let mins = timeNow.getMinutes();
+            let minsRotation = (mins/60 * 360) + 90;
+            if(minsRotation === 360) {
+                minHand.style.removeProperty('transition');
+                }
+            else {
+            minHand.style.transform = `rotate(${minsRotation}deg)`;
+            }
+
+            let hours = timeNow.getHours();
+            let hoursRotation = (hours/12 * 360) + 90;
+            if(hoursRotation === 360) {
+                hourHand.style.removeProperty('transition');
+                }
+            else {
+            hourHand.style.transform = `rotate(${hoursRotation}deg)`;
+            }
         }
 
         setInterval(changeTime, 1000);
