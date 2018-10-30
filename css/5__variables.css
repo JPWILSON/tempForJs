@@ -1,3 +1,9 @@
+:root {
+    --base: #ffc600;
+    --spacing: 10px;
+    --blur: 2px;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -31,4 +37,12 @@ img {
     max-width: 1200px;
     max-height: 600px;
     overflow: hidden;
+    padding: var(--spacing);
+    background: var(--base);
+    filter:blur(var(--blur));
+
+}
+
+.hl {
+    color: var(--base);
 }
