@@ -8,15 +8,27 @@
 <body>
     <div class="wrapper">
         <h1>Change the image border <span class="hl_c">color</span>, <span class="hl_s">size</span> and <span class="hl_b">blur</span> with JS</h1>
-        <div class="inputs">
+        <div class="controls">
             <label for="base">Color: </label>
             <input type="color" name="base" value="#F1A784">
             <label for="border">Border: </label>
             <input type="range" name="border" value="3" min="0" max="100" data-units="px">
             <label for="blur">Blur: </label>
-            <input type="range" name="blur" value="8" min="0" max="100" data-units="px">
+            <input type="range" name="blur" value="8" min="0" max="25" data-units="px">
         </div>
         <img src="images/skyline.jpg" alt="">
     </div>
+
+    <script>
+        const inputs = document.querySelectorAll(".controls input");
+
+        function changeVals() {
+            const suffix = this.dataset.units || "";
+            document.documentElement.style.setProperty(`--${this.name}`, this.value+suffix);
+        }
+
+        inputs.forEach(input => input.addEventListener('change', changeVals));
+        inputs.forEach(input => input.addEventListener('mousemove', changeVals));
+    </script>
 </body>
 </html>
