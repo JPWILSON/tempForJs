@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Amatic SC', cursive;
+}
+
+.panels{
+   height: 100vh;
+    overflow: hidden;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+    .panel {
+    flex: 1;
+    -ms-align-items: center;
+    align-items: center;
+    justify-content: center;
+
+
+
+
+    color: white;
+    text-align: center;
+    background: #6B0F9C;
+    background-size: cover;
+    background-position: center;
+    font-size: 10px;
+
+    transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+
+}
+
+
+.panel1 {
+ background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+
+}
+
+.panel2 {
+ background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+
+}
+
+.panel3 {
+ background-image:url(https://source.unsplash.com/GcW93Uuljgo/1500x1500);
+  }
+
+.panel4 {
+ background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+
+}
+
+.panel5 {
+ background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+
+}
+
+/* children (the paragraphs of text) */
+.panel > * {
+    border: 1px solid red;
+    transition: transform 0.5s;
+    width: 100%;
+
+    flex: 1 0 auto;
+
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.panel p {
+    text-transform: uppercase;
+    font-family: 'Amatic SC', cursive;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 2em;
+}
+
+.panel > *:first-child {
+    transform: translateY(-100%);
+}
+.panel.open-active > *:first-child {
+    transform: translateY(0);
+}
+.panel > *:last-child {
+    transform: translateY(100%);
+}
+.panel.open-active > *:last-child {
+    transform: translateY(0);
+}
+
+.panel p:nth-child(2) {
+    font-size: 4em;
+}
+
+.panel.open{
+    font-size: 25px;
+    flex: 5;
+}
