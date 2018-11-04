@@ -33,5 +33,22 @@
             <p>bottom</p>
         </div>
     </div>
+    <script>
+        const panels = document.querySelectorAll('.panel');
+
+        function makeBigger() {
+            this.classList.toggle('open');
+        }
+
+        function moveText(e) {
+            if(e.propertyName.includes('flex')) {
+            this.classList.toggle('open-active');
+            }
+        }
+
+
+        panels.forEach(panel => panel.addEventListener('click', makeBigger));
+        panels.forEach(panel => panel.addEventListener('transitionend', moveText));
+    </script>
 </body>
 </html>
