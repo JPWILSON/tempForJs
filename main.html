@@ -109,7 +109,17 @@
             </div> -->
         </div>
         <div class="row row4">
-            <h1>Master the Fundamentals</h1>
+            <div class="row4_one">
+                <label for="input">BG Color: </label>
+                <input name="bgcolor" type="color" value="#ffc600"><br>
+                <label for="input">Font Color: </label>
+                <input name="ftcolor" type="color" value="#0039ff"><br>
+                <label for="input">Sizing: </label>
+                <input name="sizing" type="range" value="2.5" min="0.8" max="3.5" data-unit="em">
+            </div>
+            <div class="row4_two">
+                <h1>Master the Fundamentals</h1>
+            </div>
         </div>
         <div class="row row5">
             <div class="block">
@@ -159,6 +169,19 @@
             </div>
         </div>
     </div>
+    <script>
+        const inputs = document.querySelectorAll('.row4_one input');
+
+        function changeVals() {
+            const uniting = this.dataset.unit || "";
+            document.documentElement.style.setProperty(`--${this.name}`, this.value+uniting)
+
+        }
+
+        /*inputs.forEach(i => i.addEventListener('mousemove', changeVals));*/
+        inputs.forEach(i => i.addEventListener('change', changeVals));
+
+    </script>
 
 </body>
 </html>

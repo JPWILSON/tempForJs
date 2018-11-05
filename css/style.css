@@ -1,5 +1,11 @@
 /* font-family: 'Oswald', sans-serif;
-font-family: 'Charmonman', cursive; */
+font-family: 'Charmonman', cursive;   */
+
+:root {
+    --sizing: 2.5rem;
+    --ftcolor: #0039ff;
+    --bgcolor: #ffc600;
+}
 
 body {
     margin: 0;
@@ -66,9 +72,9 @@ body {
     -ms-align-items: center;
     align-items: center;
     font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
-    color: #0039ff;
-    background-color: #ffc600;
+    font-size: var(--sizing);
+    color: var(--ftcolor);
+    background-color: var(--bgcolor);
     text-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 0.4);
 
 }
@@ -104,3 +110,16 @@ color: white;
     text-decoration: none;
 }
 
+.row4_one {
+    flex:2;
+
+    font-size: 30px;
+    margin-left: 10%;
+    color: black;
+}
+
+.row4_two {
+    flex: 3;
+
+    margin-left: 5%;
+}
