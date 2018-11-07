@@ -2,7 +2,7 @@
 font-family: 'Charmonman', cursive;   */
 
 :root {
-    --sizing: 2.5rem;
+    /* --sizing: 2.5rem; */
     --ftcolor: #0039ff;
     --bgcolor: #ffc600;
 }
@@ -72,7 +72,7 @@ body {
     -ms-align-items: center;
     align-items: center;
     font-family: 'Oswald', sans-serif;
-    font-size: var(--sizing);
+    /* font-size: var(--sizing); */
     color: var(--ftcolor);
     background-color: var(--bgcolor);
     text-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 0.4);
