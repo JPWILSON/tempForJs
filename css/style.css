@@ -73,6 +73,7 @@ body {
     align-items: center;
     font-family: 'Oswald', sans-serif;
     /* font-size: var(--sizing); */
+    font-size: 28px;
     color: var(--ftcolor);
     background-color: var(--bgcolor);
     text-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 0.4);
@@ -110,16 +111,24 @@ color: white;
     text-decoration: none;
 }
 
-.row4_one {
-    flex:2;
+.row4_one label:nth-child(1){
+    text-decoration: underline;
+    font-size: 24px;
+}
 
-    font-size: 30px;
-    margin-left: 10%;
+.row4_one {
+    flex:1.5;
+
+    font-size: 18px;
+    margin-left: 2%;
     color: black;
+    text-shadow: none;
 }
 
 .row4_two {
     flex: 3;
-
-    margin-left: 5%;
+    padding-left: 2%;
+    margin-left: 3%;
 }
+
+
