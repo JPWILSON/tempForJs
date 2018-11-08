@@ -26,7 +26,11 @@ body {
 .row {
 
     display: flex;
-
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
     flex: 1;
 
 }
@@ -131,9 +135,49 @@ color: white;
     margin-left: 3%;
 }
 
+#mobileVersionJSName {
+    display: None;
+}
 
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 960px){
+    #topNameRow, #bottomNameRow {
+        display: None;
+    }
+
+    .row1, .row3, .row5 {
+        box-shadow: None;
+    }
+
+    #mobileVersionJSName {
+        display: block;
+        text-align: center;
+        padding-bottom: -200px;
+    }
+
+   /*  #mobileVersionJSName h1{
+       text-align: center;
+   } */
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .block {
+        flex: None;
+        width: 100%;
+        box-shadow: None;
+    }
+
+    .block:hover {
+    box-shadow:None;
+}
+
+    .row5 {
+        display: None;
+    }
 
 }
+
